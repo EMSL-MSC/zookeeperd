@@ -66,6 +66,10 @@ end
 
 directory node[:zookeeperd][:config][:data_dir] do
   group node[:zookeeperd][:group]
+  owner node['zookeeperd']['user']
+  mode '0755'
+  recursive true
+  action :create
 end
 
 unless(node[:zookeeperd][:zk_id])
