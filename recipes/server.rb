@@ -38,6 +38,14 @@ when 'jar'
   include_recipe "zookeeperd::apache_jar"
 end
 
+directory node[:zookeeperd][:config][:data_dir] do
+  group node[:zookeeperd][:group]
+  owner node['zookeeperd']['user']
+  mode '0755'
+  recursive true
+  action :create
+end
+
 execute 'zk_init' do
   command "/usr/bin/zookeeper-server-initialize"
   user node[:zookeeperd][:user]
@@ -62,14 +70,6 @@ template '/etc/zookeeper/conf/zoo.cfg' do
   source 'zoo.cfg.erb'
   mode 0644
   notifies :restart, 'service[zookeeper]'
-end
-
-directory node[:zookeeperd][:config][:data_dir] do
-  group node[:zookeeperd][:group]
-  owner node['zookeeperd']['user']
-  mode '0755'
-  recursive true
-  action :create
 end
 
 unless(node[:zookeeperd][:zk_id])
