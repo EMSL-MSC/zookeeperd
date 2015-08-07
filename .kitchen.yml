@@ -1,11 +1,10 @@
----
 driver:
   name: vagrant
   customize:
     memory: 1048
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
   attributes:
     zookeeperd:
       cluster:
@@ -14,10 +13,10 @@ provisioner:
         client_port: 9000
 
 platforms:
-  - name: ubuntu-12.04
+  - name: ubuntu-14.04
     run_list:
       - recipe[apt]
-  - name: centos-6.5
+  - name: centos-6.6
 
 suites:
   - name: client
