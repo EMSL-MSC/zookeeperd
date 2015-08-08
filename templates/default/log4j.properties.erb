@@ -1,7 +1,11 @@
 # log4j property file dropped off by Chef!
-<% node['zookeeperd']['log4j_pre'].each do |l,m| %>
+<% node['zookeeperd']['log4j_pre'].each do |l, m| -%>
+  <% unless m.empty? -%>
 <%= l %>=<%= m %>
+  <% end %>
 <% end %>
-<% node['zookeeperd']['log4j'].each do |k,v| %>
+<% node['zookeeperd']['log4j'].each do |k, v| -%>
+  <% unless v.empty? -%>
 log4j.<%= k %>=<%= v %>
+  <% end %>
 <% end %>
