@@ -6,3 +6,5 @@ end
 node[:zookeeperd][:client_packages].each do |zkpkg|
   package zkpkg
 end
+
+include_recipe 'zookeeperd::discovery'

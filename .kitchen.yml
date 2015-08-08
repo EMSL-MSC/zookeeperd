@@ -1,7 +1,5 @@
 driver:
   name: vagrant
-  customize:
-    memory: 1048
 
 provisioner:
   name: chef_zero
@@ -17,6 +15,8 @@ platforms:
     run_list:
       - recipe[apt]
   - name: centos-6.6
+    run_list:
+      - recipe[yum]
 
 suites:
   - name: client
