@@ -1,3 +1,6 @@
+
+default['zookeeperd']['log4j_pre']['zookeeper.log.file'] = 'zookeeper.log'
+
 default['zookeeperd']['log4j']['rootLogger'] = '${zookeeper.root.logger}'
 default['zookeeperd']['log4j']['appender.CONSOLE'] = 'org.apache.log4j.ConsoleAppender'
 default['zookeeperd']['log4j']['appender.CONSOLE.Threshold'] = 'INFO'
