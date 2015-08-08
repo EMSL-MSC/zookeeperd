@@ -3,7 +3,7 @@ maintainer_email 'support@hw-ops.com'
 license 'Apache 2.0'
 
 name 'zookeeperd'
-version '0.2.92'
+version '0.2.93'
 
 depends 'apt'
 depends 'discovery', '>= 0.2.0'
