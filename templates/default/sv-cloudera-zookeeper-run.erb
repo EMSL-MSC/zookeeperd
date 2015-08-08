@@ -17,5 +17,5 @@ export ZOO_DATADIR_AUTOCREATE_DISABLE=${ZOO_DATADIR_AUTOCREATE_DISABLE:-true}
 
 exec 2>&1
 exec chpst \
-  -u <%= node[:zookeeperd][:user] %> \
+  -u <%= node['zookeeperd']['user'] %> \
   /usr/lib/zookeeper/bin/zkServer.sh start-foreground

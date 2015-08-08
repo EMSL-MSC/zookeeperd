@@ -2,6 +2,6 @@
 <% node['zookeeperd']['log4j_pre'].each do |l,m| %>
 <%= l %>=<%= m %>
 <% end %>
-<% node[:zookeeperd][:log4j].each do |k,v| %>
+<% node['zookeeperd']['log4j'].each do |k,v| %>
 log4j.<%= k %>=<%= v %>
 <% end %>
