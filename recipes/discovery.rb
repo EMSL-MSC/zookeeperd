@@ -41,8 +41,8 @@ if node['zookeeperd']['zk_id']
     zinfo = [node['zookeeperd']['ipaddress']]
     zinfo << node['zookeeperd']['cluster']['follower_port']
     zinfo << node['zookeeperd']['cluster']['election_port']
-    zk_hash["server.#{node['zookeeperd']['zk_id']}"] = zinfo.join(':')
-    zk_discovery["server.#{node['zookeeperd']['zk_id']}"] = node['zookeeperd']['ipaddress']
+    zk_hash["server.#{node.default['zookeeperd']['zk_id']}"] = zinfo.join(':')
+    zk_discovery["server.#{node.default['zookeeperd']['zk_id']}"] = node['zookeeperd']['ipaddress']
   end
 end
 
