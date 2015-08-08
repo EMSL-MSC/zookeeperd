@@ -18,8 +18,8 @@ describe 'zookeeperd::client' do
     end
   end
 
-  context 'on ubuntu-12.04' do
-    let(:runner) { ChefSpec::Runner.new(platform: 'ubuntu', version: '12.04') }
+  context 'on ubuntu-14.04' do
+    let(:runner) { ChefSpec::Runner.new(platform: 'ubuntu', version: '14.04') }
     let(:default_client_pkg) { 'zookeeper' }
 
     context 'using system packages' do

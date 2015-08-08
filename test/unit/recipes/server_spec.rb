@@ -119,8 +119,8 @@ describe 'zookeeperd::server' do
     end
   end
 
-  context 'on ubuntu-12.04' do
-    let(:runner) { ChefSpec::Runner.new(platform: 'ubuntu', version: '12.04') }
+  context 'on ubuntu-14.04' do
+    let(:runner) { ChefSpec::Runner.new(platform: 'ubuntu', version: '14.04') }
 
     context 'using system packages' do
       let(:default_server_pkg) { 'zookeeperd' }
@@ -191,8 +191,8 @@ describe 'zookeeperd::server' do
     end
   end
 
-  context 'on centos-6.4' do
-    let(:runner) { ChefSpec::Runner.new(platform: 'centos', version: '6.4') }
+  context 'on centos-6.6' do
+    let(:runner) { ChefSpec::Runner.new(platform: 'centos', version: '6.6') }
 
     context 'with cloudera packages' do
       let(:default_server_pkg) { 'zookeeper-server' }
