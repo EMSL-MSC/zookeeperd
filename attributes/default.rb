@@ -9,7 +9,7 @@ default['zookeeperd']['jar']['log_dir'] = '/var/log/zookeeper'
 default['zookeeperd']['jar']['pid_dir'] = '/var/run/zookeeper'
 default['zookeeperd']['jar']['data_dir'] = '/var/lib/zookeeper'
 
-if(node.platform_family?('rhel', 'fedora', 'suse'))
+if node.platform_family?('rhel', 'fedora', 'suse')
   default['zookeeperd']['server_packages'] = %w(zookeeper-server)
   default['zookeeperd']['client_packages'] = %w(zookeeper)
   default['zookeeperd']['service_name'] = 'zookeeper-server'
@@ -17,7 +17,7 @@ if(node.platform_family?('rhel', 'fedora', 'suse'))
   default['zookeeperd']['cloudera']['baseurl'] = "http://archive.cloudera.com/cdh4/redhat/#{node['zookeeperd']['install']['platform_version'].to_i}/#{node['kernel']['machine']}/cdh/4/"
   default['zookeeperd']['cloudera']['gpgkey'] = "http://archive.cloudera.com/cdh4/redhat/#{node['zookeeperd']['install']['platform_version'].to_i}/#{node['kernel']['machine']}/cdh/RPM-GPG-KEY-cloudera"
   default['zookeeperd']['cloudera']['gpgcheck'] = true
-elsif(node.platform_family?('debian'))
+elsif node.platform_family?('debian')
   default['zookeeperd']['server_packages'] = %w(zookeeperd)
   default['zookeeperd']['client_packages'] = %w(zookeeper)
   default['zookeeperd']['service_name'] = 'zookeeper'
@@ -38,6 +38,5 @@ default['zookeeperd']['int_bit_limit'] = 32
 default['zookeeperd']['user'] = 'zookeeper'
 default['zookeeperd']['group'] = 'zookeeper'
 
-default['zookeeperd']['open_file_limit'] = 32768
+default['zookeeperd']['open_file_limit'] = 32_768
 default['zookeeperd']['max_processes'] = 1024
-
